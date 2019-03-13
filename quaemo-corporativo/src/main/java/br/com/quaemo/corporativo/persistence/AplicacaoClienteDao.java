@@ -1,0 +1,10 @@
+package br.com.quaemo.corporativo.persistence;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import br.com.quaemo.domain.AplicacaoCliente;
+
+public interface AplicacaoClienteDao extends JpaRepository<AplicacaoCliente, String> {
+	
+	AplicacaoCliente findByCodSistema(Integer codSistema);
+}

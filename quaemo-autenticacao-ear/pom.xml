@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+	    <groupId>br.com.quaemo</groupId>
+	    <artifactId>quaemo</artifactId>
+    	<version>1.0.0</version> 
+	</parent>
+ 
+	<artifactId>quaemo-autenticacao-ear</artifactId> 
+	<packaging>ear</packaging>
+	<name>Quaemo - Autenticacao - EAR</name>
+     
+
+	<build> 
+		<plugins>
+			<plugin> 
+				<artifactId>maven-ear-plugin</artifactId> 
+				<configuration>   
+					<manifest>
+						<addClasspath>true</addClasspath>
+					</manifest>
+					<defaultLibBundleDir>lib</defaultLibBundleDir> 
+					<modules>  
+						<jarModule>
+							<bundleFileName>quaemo-comum.jar</bundleFileName>
+							<groupId>br.com.quaemo</groupId>
+							<artifactId>quaemo-comum</artifactId>
+						</jarModule>  
+						<webModule>
+							<bundleFileName>quaemo-autenticacao.war</bundleFileName>
+							<groupId>br.com.quaemo</groupId>
+							<artifactId>quaemo-autenticacao</artifactId>
+							<contextRoot>/quaemo-autenticacao/api</contextRoot> 
+							<unpack>false</unpack>
+						</webModule>     
+					</modules>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+ 
+	<dependencies>
+		<dependency>
+			<groupId>br.com.quaemo</groupId>
+			<artifactId>quaemo-comum</artifactId>
+			<version>${project.version}</version> 
+			<type>jar</type>
+		</dependency>  
+		<dependency>
+			<groupId>br.com.quaemo</groupId>
+			<artifactId>quaemo-autenticacao</artifactId>
+			<version>${project.version}</version> 
+			<type>war</type>
+		</dependency> 
+	</dependencies>
+
+</project>
